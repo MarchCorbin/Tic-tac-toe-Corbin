@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+}
+
+.player1-board {
+  display: grid;
+  height: 100%;
+  width: 33%;
+  border: 1px solid black;
+}
+
+.game-board {
+  height: 100%;
+  width: 33%;
+  border: 1px solid red;
+}
+
+.player2-board {
+  height: 100%;
+  width: 33%;
+  border: 1px solid green;
+}
+.title-text {
+  display: inline-block;
+  height: 100px;
+  text-align: center;
+}
+
+.col:hover {
+  background: lightgrey;
+}
+.col {
+  /* border: 2px solid blue; */
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  float: left;
+  text-align: center
+}
+
+article {
+  display: inline-block;
+  height: 95px;
+}
+
+.tictac-board {
+  margin-left: 85px;
+}
+
+.row1, .row2, .row3 {
+  width: 302px;
+}
+
+.col1, .col2, .col3 {
+  border-bottom: 2px solid black;
+}
+
+.col1, .col2 {
+  border-right: 2px solid black;
+}
+
+.col4, .col5, .col6 {
+  border-bottom: 2px solid black;
+}
+
+.col4, .col5 {
+  border-right: 2px solid black;
+}
+
+.col7, .col8{
+  border-right: 2px solid black;
+}
+
+.player-text {
+  height: 100px;
+  text-align: center;
+}
