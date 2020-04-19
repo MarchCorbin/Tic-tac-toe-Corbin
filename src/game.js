@@ -27,6 +27,7 @@ class Game {
       this.activePlayer = this.player2
     } else {
       this.activePlayer = this.player1
+
     }
   }
 
@@ -51,12 +52,10 @@ class Game {
       var firstMarkCheck = this.board[firstMark.row][firstMark.col]
       var secondMarkCheck = this.board[secondMark.row][secondMark.col]
       var thirdMarkCheck = this.board[thirdMark.row][thirdMark.col]
-
       if(firstMarkCheck !== '' && firstMarkCheck == secondMarkCheck && secondMarkCheck == thirdMarkCheck){
-        alert('You have won'){
-          this.activePlayer.wins.push(this.board)
+        this.activePlayer.wins.push(this.board)
+        alert('You have won')
         }
       }
     }
   }
-}

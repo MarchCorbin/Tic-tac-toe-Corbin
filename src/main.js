@@ -13,7 +13,12 @@ function drawBoard(){
   for (var i = 0; i < freshGame.board.length; i++) {
     for (var j = 0; j < freshGame.board.length; j++) {
       freshGame.board[i][j]
-      console.log(freshGame.board[i][j], `${i}-${j}`);
+
     }
   }
+}
+function getID(){
+  var slotId = event.target.id
+   var splitId = slotId.split('-')
+   freshGame.takeTurn(splitId[0],splitId[1])
 }
