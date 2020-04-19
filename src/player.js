@@ -1,7 +1,7 @@
 class Player {
-  constructor(numPlayer, score){
-    this.numPlayer = numPlayer
-    this.score = score
-    this.gameBoard = []
+  constructor(mark){
+    this.mark = mark
+    this.wins = []
   }
+  // Local storage happening here
 }
