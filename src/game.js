@@ -2,11 +2,12 @@ class Game {
   constructor(player1, player2){
     this.player1 = player1
     this.player2 = player2
+    this.isActive = true
     this.activePlayer = this.player1
     this.board = [
       ['','',''],
       ['','',''],
-      ['','',''],
+      ['','','']
     ]
     this.winningRows = [
       [{row:0, col:0}, {row:0, col:1},{row:0, col:2}],
@@ -22,25 +23,26 @@ class Game {
      ]
   }
 
-  toggleActivePlayer(){
-    if(this.activePlayer === this.player1){
-      this.activePlayer = this.player2
-    } else {
-      this.activePlayer = this.player1
-
-    }
-  }
 
   takeTurn(row, col) {
-    if(this.board[row][col] == ''){
+    if(this.board[row][col] == ""){
       this.board[row][col] = this.activePlayer.mark
-      this.toggleActivePlayer()
       this.checkForWin()
-      console.log(this.board);
+      this.toggleActivePlayer()
     } else {
       alert('Invalid Move, Pick Again')
     }
   }
+
+  toggleActivePlayer(){
+    if(this.activePlayer === this.player1){
+      this.activePlayer = this.player2
+    } else if(this.activePlayer === this.player2){
+      this.activePlayer = this.player1
+    }
+  }
+
+
 
   checkForWin(){
     for (var i = 0; i < this.winningRows.length; i++) {
@@ -54,8 +56,20 @@ class Game {
       var thirdMarkCheck = this.board[thirdMark.row][thirdMark.col]
       if(firstMarkCheck !== '' && firstMarkCheck == secondMarkCheck && secondMarkCheck == thirdMarkCheck){
         this.activePlayer.wins.push(this.board)
+        this.isActive = false
+        this.resetGame()
         alert('You have won')
         }
       }
+    }
+
+
+  resetGame() {
+      this.isActive = true
+      this.board = [
+        ['','',''],
+        ['','',''],
+        ['','','']
+      ]
     }
   }
