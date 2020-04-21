@@ -3,5 +3,7 @@ class Player {
     this.mark = mark
     this.wins = []
   }
-  // Local storage happening here
-}
+
+// function storeTheWins(){
+
+// }
