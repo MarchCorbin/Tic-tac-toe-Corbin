@@ -23,10 +23,12 @@ function drawBoard(){
       }
     }
   }
+  if(freshGame.winner !== null){
+    drawPlayerBoards()
+  }
 }
 
 function drawPlayerBoards(){
-  if(freshGame.winner === 'player1'){
     player1Stored = []
     reinstate()
     for (var i = 0; i < player1Stored.length; i++) {
@@ -51,8 +53,7 @@ function drawPlayerBoards(){
     </section>`
     player1Board.insertAdjacentHTML('afterBegin', player1Boards)
   }
-  } else if (freshGame.winner === 'player2'){
-  player2Stored = []
+    player2Stored = []
   reinstate()
   for (var i = 0; i < player2Stored.length; i++) {
         var slotValue = player2Stored[i]
@@ -77,16 +78,16 @@ function drawPlayerBoards(){
       player2Board.insertAdjacentHTML('afterBegin', player2Boards)
       }
     }
-}
+
 
 function reinstate(){
   var i = 0
-    if(freshGame.winner === 'player1'){
+    if(freshGame.winner === 'player1') {
   var savedGames = player1.retrieveWins()
   var storeTheBoard = savedGames[i]
   player1Stored.push(storeTheBoard)
   i++
-  } else if(freshGame.winner === 'player2'){
+  } else if(freshGame.winner === 'player2') {
     var savedGames = player2.retrieveWins()
     var storeTheBoard = savedGames[i]
     player2Stored.push(storeTheBoard)
@@ -94,10 +95,11 @@ function reinstate(){
   }
 }
 
+
+
 function getID(){
-  var slotId = event.target.id
+   var slotId = event.target.id
    slotId = slotId.slice(1,4)
    var splitId = slotId.split('-')
    freshGame.takeTurn(splitId[0],splitId[1])
-   drawPlayerBoards()
 }
