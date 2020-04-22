@@ -27,15 +27,8 @@ function drawBoard(){
 //
 function drawPlayerBoards(){
   if(freshGame.winner === 'player1'){
-  }
 for (var i = 0; i < player1Stored.length; i++) {
       var slotValue = player1Stored[i]
-      if (slotValue === undefined){
-        slotValue = '-'
-      } else {
-        slotValue = slotValue
-      }
-console.log(slotValue);
     var player1Boards = `
       <section class='small-tictac-board'>
       <article class="srow1">
@@ -55,11 +48,32 @@ console.log(slotValue);
     </article>
     </section>`
     player1Board.insertAdjacentHTML('afterBegin', player1Boards)
-
+  }
+} else if (freshGame.winner === 'player2'){
+  for (var i = 0; i < player2Stored.length; i++) {
+        var slotValue = player2Stored[i]
+      var player2Boards = `
+        <section class='small-tictac-board'>
+        <article class="srow1">
+        <div class="scol col1" id='p0-0'>${slotValue[0][0]}</div>
+        <div class="scol col2" id='p0-1'>${slotValue[0][1]}</div>
+        <div class="scol col3" id='p0-2'>${slotValue[0][2]}</div>
+      </article>
+      <article class="srow2">
+        <div class="scol col4" id='p1-0'>${slotValue[1][0]}</div>
+        <div class="scol col5" id='p1-1'>${slotValue[1][1]}</div>
+        <div class="scol col6" id='p1-2'>${slotValue[1][2]}</div>
+      </article>
+      <article class="srow3">
+        <div class="scol col7" id='p2-0'>${slotValue[2][0]}</div>
+        <div class="scol col8" id='p2-1'>${slotValue[2][1]}</div>
+        <div class="scol col9" id='p2-2'>${slotValue[2][2]}</div>
+      </article>
+      </section>`
+      player2Board.insertAdjacentHTML('afterBegin', player2Boards)
 }
 }
-
-
+}
 // loop through savedGames twice when nested target the section where we want the board to go on the corresponding side of the board using insertAdjacentHTML.
 
 
