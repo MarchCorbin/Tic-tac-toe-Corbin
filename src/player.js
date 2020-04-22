@@ -10,8 +10,9 @@ storeTheWins(){
 var gameToStore = this.wins
 var stringifyGame = JSON.stringify(gameToStore)
 localStorage.setItem(`${freshGame.activePlayer.name}`, stringifyGame)
-    }
   }
+}
+
   retrieveWins(){
 var stringed = localStorage.getItem(`${freshGame.activePlayer.name}`)
 var parsedGame = JSON.parse(stringed)
