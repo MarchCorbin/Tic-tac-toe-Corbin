@@ -10,16 +10,20 @@ body {
 }
 
 .player1-board {
-  display: grid;
   height: 100%;
   width: 33%;
   border: 1px solid black;
+  display: grid;
 }
 
 .game-board {
   height: 100%;
   width: 33%;
   border: 1px solid red;
+}
+
+.small-game-board {
+
 }
 
 .player2-board {
@@ -45,6 +49,14 @@ body {
   text-align: center
 }
 
+.scol {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  float: left;
+  text-align: center;
+}
+
 article {
   display: inline-block;
   height: 95px;
@@ -54,8 +66,16 @@ article {
   margin-left: 85px;
 }
 
+.small-tictac-board {
+display: inline-block;
+}
+
 .row1, .row2, .row3 {
   width: 302px;
+}
+
+.srow1, .srow2, .srow3 {
+  height: 26px;
 }
 
 .col1, .col2, .col3 {
