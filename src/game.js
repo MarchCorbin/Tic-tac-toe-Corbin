@@ -4,6 +4,7 @@ class Game {
     this.player2 = player2
     this.isActive = true
     this.activePlayer = this.player1
+    this.winner = null
     this.board = [
       ['','',''],
       ['','',''],
@@ -56,9 +57,12 @@ class Game {
       var thirdMarkCheck = this.board[thirdMark.row][thirdMark.col]
       if(firstMarkCheck !== '' && firstMarkCheck == secondMarkCheck && secondMarkCheck == thirdMarkCheck){
         this.activePlayer.wins.push(this.board)
+        this.winner = `${this.activePlayer.name}`
         this.isActive = false
+        this.activePlayer.assessTheWins()
         this.resetGame()
-        alert('You have won')
+        alert('You Have Won!')
+        return true
         }
       }
     }
