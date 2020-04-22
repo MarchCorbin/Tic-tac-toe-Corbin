@@ -84,17 +84,18 @@ for (var i = 0; i < player1Stored.length; i++) {
 
 // }
 function reinstate(){
-  if(freshGame.winner === 'player1'){
+  var i = 0
+    if(freshGame.winner === 'player1'){
   var savedGames = player1.retrieveWins()
-  var storeTheBoard = savedGames[0]
+  var storeTheBoard = savedGames[i]
   player1Stored.push(storeTheBoard)
-
-} else if(freshGame.winner === 'player2'){
-  var savedGames = player2.retrieveWins()
-  var storeTheBoard = savedGames[0]
-  player2Stored.push(storeTheBoard)
-
-}
+  i++
+  } else if(freshGame.winner === 'player2'){
+    var savedGames = player2.retrieveWins()
+    var storeTheBoard = savedGames[i]
+    player2Stored.push(storeTheBoard)
+    i++
+  }
 }
 
 

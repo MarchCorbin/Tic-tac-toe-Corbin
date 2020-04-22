@@ -19,7 +19,7 @@ return parsedGame
   }
 
   assessTheWins(){
-    if(this.wins.length > 0){
+    if(this.wins.length >= 0){
       this.storeTheWins()
   }  if(this.wins.length > 1)
       this.retrieveWins()
