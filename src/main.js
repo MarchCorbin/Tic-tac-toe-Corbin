@@ -4,14 +4,14 @@ var player2 = new Player('O', 'player2')
 var freshGame = new Game(player1, player2)
 var player1Board = document.querySelector('.player1-boards')
 var player2Board = document.querySelector('.player2-boards')
-
+document.onload = drawPlayerBoards()
 gameBoard.addEventListener('click',function(){
-drawBoard()
-getID()
-drawPlayerBoards()
+  getID()
+  drawBoard()
 });
 var player1Stored = []
 var player2Stored = []
+
 function drawBoard(){
   for (var i = 0; i < freshGame.board.length; i++) {
     for (var j = 0; j < freshGame.board[i].length; j++) {
@@ -20,16 +20,16 @@ function drawBoard(){
         freshGame.board[i][j].innerText = ''
       } else {
         gotYou.innerHTML = `<p>${freshGame.board[i][j]}</p>`
-        }
-      }
       }
     }
-//
+  }
+}
+
 function drawPlayerBoards(){
   if(freshGame.winner === 'player1'){
     player1Stored = []
     reinstate()
-for (var i = 0; i < player1Stored.length; i++) {
+    for (var i = 0; i < player1Stored.length; i++) {
       var slotValue = player1Stored[i]
     var player1Boards = `
       <section class='small-tictac-board'>
@@ -51,7 +51,7 @@ for (var i = 0; i < player1Stored.length; i++) {
     </section>`
     player1Board.insertAdjacentHTML('afterBegin', player1Boards)
   }
-} else if (freshGame.winner === 'player2'){
+  } else if (freshGame.winner === 'player2'){
   player2Stored = []
   reinstate()
   for (var i = 0; i < player2Stored.length; i++) {
@@ -75,14 +75,10 @@ for (var i = 0; i < player1Stored.length; i++) {
       </article>
       </section>`
       player2Board.insertAdjacentHTML('afterBegin', player2Boards)
+      }
+    }
 }
-}
-}
-// loop through savedGames twice when nested target the section where we want the board to go on the corresponding side of the board using insertAdjacentHTML.
 
-
-
-// }
 function reinstate(){
   var i = 0
     if(freshGame.winner === 'player1'){
@@ -98,16 +94,10 @@ function reinstate(){
   }
 }
 
-
-
-
-
-
 function getID(){
   var slotId = event.target.id
    slotId = slotId.slice(1,4)
    var splitId = slotId.split('-')
    freshGame.takeTurn(splitId[0],splitId[1])
-   drawBoard()
-   // drawPlayerBoards(splitId[0],splitId[1])
+   drawPlayerBoards()
 }
