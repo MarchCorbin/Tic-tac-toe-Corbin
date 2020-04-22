@@ -8,7 +8,7 @@ var player2Board = document.querySelector('.player2-boards')
 gameBoard.addEventListener('click',function(){
 drawBoard()
 getID()
-reinstate()
+drawPlayerBoards()
 });
 var player1Stored = []
 var player2Stored = []
@@ -27,6 +27,8 @@ function drawBoard(){
 //
 function drawPlayerBoards(){
   if(freshGame.winner === 'player1'){
+    player1Stored = []
+    reinstate()
 for (var i = 0; i < player1Stored.length; i++) {
       var slotValue = player1Stored[i]
     var player1Boards = `
@@ -50,6 +52,8 @@ for (var i = 0; i < player1Stored.length; i++) {
     player1Board.insertAdjacentHTML('afterBegin', player1Boards)
   }
 } else if (freshGame.winner === 'player2'){
+  player2Stored = []
+  reinstate()
   for (var i = 0; i < player2Stored.length; i++) {
         var slotValue = player2Stored[i]
       var player2Boards = `
@@ -84,12 +88,12 @@ function reinstate(){
   var savedGames = player1.retrieveWins()
   var storeTheBoard = savedGames[0]
   player1Stored.push(storeTheBoard)
-  drawPlayerBoards()
+
 } else if(freshGame.winner === 'player2'){
   var savedGames = player2.retrieveWins()
   var storeTheBoard = savedGames[0]
   player2Stored.push(storeTheBoard)
-  drawPlayerBoards()
+
 }
 }
 
