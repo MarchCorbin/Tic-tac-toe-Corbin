@@ -13,7 +13,6 @@ body {
   height: 100%;
   width: 33%;
   border: 1px solid black;
-  display: grid;
 }
 
 .game-board {
@@ -101,4 +100,10 @@ display: inline-block;
 .player-text {
   height: 100px;
   text-align: center;
+}
+.player1-boards {
+  display: flex;
+}
+.player2-boards {
+  display: flex;
 }

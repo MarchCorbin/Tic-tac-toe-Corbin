@@ -56,12 +56,12 @@ class Game {
       var secondMarkCheck = this.board[secondMark.row][secondMark.col]
       var thirdMarkCheck = this.board[thirdMark.row][thirdMark.col]
       if(firstMarkCheck !== '' && firstMarkCheck == secondMarkCheck && secondMarkCheck == thirdMarkCheck){
-        this.activePlayer.wins.push(this.board)
-        this.winner = `${this.activePlayer.name}`
         this.isActive = false
+        this.activePlayer.wins.unshift(this.board)
+        this.winner = `${this.activePlayer.name}`
         this.activePlayer.assessTheWins()
+        alert(`${this.winner} has Won!`)
         this.resetGame()
-        alert('You Have Won!')
         return true
         }
       }
