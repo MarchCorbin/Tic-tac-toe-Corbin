@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
   height: 100%;
   width: 100%;
   margin: 0px;
@@ -98,12 +99,25 @@ display: inline-block;
 }
 
 .player-text {
-  height: 100px;
+  height: 50px;
   text-align: center;
 }
+
 .player1-boards {
-  display: flex;
+   display: grid;
+   grid-gap: 20px;
+   grid-template-columns: repeat(3, 1fr);
+   padding: 20px;
 }
+
 .player2-boards {
-  display: flex;
+   display: grid;
+   grid-gap: 20px;
+   grid-template-columns: repeat(3, 1fr);
+   padding: 20px;
+}
+
+.player1-score, .player2-score {
+  height: 50px;
+  text-align: center;
 }
