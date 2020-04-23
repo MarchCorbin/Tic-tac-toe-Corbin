@@ -1,6 +1,6 @@
 var gameBoard = document.querySelector('.game-board')
-var player1 = new Player('X', 'player1')
-var player2 = new Player('O', 'player2')
+var player1 = new Player('O', 'player1')
+var player2 = new Player('X', 'player2')
 var freshGame = new Game(player1, player2)
 var player1Board = document.querySelector('.player1-boards')
 var player2Board = document.querySelector('.player2-boards')
@@ -23,24 +23,26 @@ function drawBoard(){
       }
     }
   }
-  if(freshGame.winner !== null){
-    drawPlayerBoards()
-  }
 }
+
 
 function drawPlayerBoards(takeThem){
   var toHere;
-    var playerWins = player1.retrieveWins()
-    var playerWins = player2.retrieveWins()
+  var player;
     if(takeThem === 'player1'){
       toHere = player1Board
+      player = player1
+      playerWins = ''
     } else if (takeThem === 'player2') {
       toHere = player2Board
+      player = player2
+      playerWins = ''
     }
-    console.log(toHere);
-    for (var i = 0; i < playerWins.length; i++) {
-      var slotValue = playerWins[i];
-      // if(slotValue == ''){
+      var playerWins = player.retrieveWins()
+      console.log(playerWins)
+    if(playerWins.length && toHere){
+    // for (var i = 0; i < playerWins.length; i++) {
+      var slotValue = playerWins[0];
     var playerBoards = `
       <section class='small-tictac-board'>
       <article class="srow1">
@@ -60,23 +62,12 @@ function drawPlayerBoards(takeThem){
     </article>
     </section>`
     toHere.insertAdjacentHTML('afterBegin', playerBoards)
+    // }
   }
 }
 
 
 
-
-function reinstate(){
-    if(freshGame.winner === 'player1') {
-  var savedGames = player1.retrieveWins()
-  var storeTheBoard = savedGames
-  player1Stored.push(storeTheBoard)
-  } else if(freshGame.winner === 'player2') {
-    var savedGames = player2.retrieveWins()
-    var storeTheBoard = savedGames
-    player2Stored.push(storeTheBoard)
-  }
-}
 
 function checkWin(){
   if(freshGame.winner !== null){
