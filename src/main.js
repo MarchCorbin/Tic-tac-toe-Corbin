@@ -6,12 +6,11 @@ var player1Board = document.querySelector('.player1-boards')
 var player2Board = document.querySelector('.player2-boards')
 var player1Score = document.querySelector('.player1-score')
 var player2Score = document.querySelector('.player2-score')
+var whoseTurn = document.querySelector('.whose-turn')
 gameBoard.addEventListener('click',function(){
   getID()
   drawBoard()
 });
-var player1Stored = []
-var player2Stored = []
 window.onload = function(){
   startUp(player1)
   startUp(player2)
@@ -35,7 +34,7 @@ function drawBoard(){
 function drawPlayerBoards(takeThem){
   var toHere;
   var player;
-  var scores;
+  var scores
     if(takeThem === 'player1'){
       toHere = player1Board
       player = player1
@@ -46,10 +45,11 @@ function drawPlayerBoards(takeThem){
       scores = player2Score
     }
       var playerWins = player.retrieveWins()
-      scores.innerText = playerWins.length
+      var scoreNum = parseInt(scores.innerText)
+       scores.innerText = scoreNum + 1;
     if(playerWins.length && toHere){
       var slotValue = playerWins[0];
-    var playerBoards = `
+      var playerBoards = `
       <section class='small-tictac-board'>
       <article class="srow1">
       <div class="scol col1" id='p0-0'>${slotValue[0][0]}</div>
@@ -68,13 +68,13 @@ function drawPlayerBoards(takeThem){
     </article>
     </section>`
     toHere.insertAdjacentHTML('afterBegin', playerBoards)
-
   }
 }
 
 function startUp(player){
   var boardGames;
   var toHere
+  var scores;
   if(player.name === 'player2'){
     toHere = player2Board
     boardGames = player2.retrieveWins()
@@ -85,6 +85,7 @@ function startUp(player){
     scores = player1Score
   }
   for(var i = 0; i < boardGames.length; i++) {
+    scores.innerText = boardGames.length
     slotValue = boardGames[i]
     var playerBoards = `
       <section class='small-tictac-board'>
@@ -121,5 +122,6 @@ function getID(){
    slotId = slotId.slice(1,4)
    var splitId = slotId.split('-')
    freshGame.takeTurn(splitId[0],splitId[1])
+   whoseTurn.innerText = freshGame.activePlayer.name
    checkWin()
 }

@@ -22,10 +22,6 @@ body {
   border: 1px solid red;
 }
 
-.small-game-board {
-
-}
-
 .player2-board {
   height: 100%;
   width: 33%;
@@ -41,7 +37,7 @@ body {
   background: lightgrey;
 }
 .col {
-  /* border: 2px solid blue; */
+
   height: 100px;
   width: 100px;
   line-height: 100px;
@@ -100,6 +96,7 @@ display: inline-block;
 
 .player-text {
   height: 50px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -120,4 +117,12 @@ display: inline-block;
 .player1-score, .player2-score {
   height: 50px;
   text-align: center;
+}
+
+.whose-turn {
+  position: absolute;
+  height: 33px;
+  width: 100px;
+  top: 60px;
+  left: 602px;
 }
