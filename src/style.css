@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
   height: 100%;
   width: 100%;
   margin: 0px;
@@ -21,10 +22,6 @@ body {
   border: 1px solid red;
 }
 
-.small-game-board {
-
-}
-
 .player2-board {
   height: 100%;
   width: 33%;
@@ -40,7 +37,7 @@ body {
   background: lightgrey;
 }
 .col {
-  /* border: 2px solid blue; */
+
   height: 100px;
   width: 100px;
   line-height: 100px;
@@ -98,12 +95,34 @@ display: inline-block;
 }
 
 .player-text {
-  height: 100px;
+  height: 50px;
+  margin-top: 10px;
   text-align: center;
 }
+
 .player1-boards {
-  display: flex;
+   display: grid;
+   grid-gap: 20px;
+   grid-template-columns: repeat(3, 1fr);
+   padding: 20px;
 }
+
 .player2-boards {
-  display: flex;
+   display: grid;
+   grid-gap: 20px;
+   grid-template-columns: repeat(3, 1fr);
+   padding: 20px;
+}
+
+.player1-score, .player2-score {
+  height: 50px;
+  text-align: center;
+}
+
+.whose-turn {
+  position: absolute;
+  height: 33px;
+  width: 100px;
+  top: 60px;
+  left: 602px;
 }
