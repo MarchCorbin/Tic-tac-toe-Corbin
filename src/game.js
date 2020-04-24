@@ -5,6 +5,7 @@ class Game {
     this.isActive = true
     this.activePlayer = this.player1
     this.winner = null
+    this.isDraw = false
     this.board = [
       ['','',''],
       ['','',''],
@@ -29,6 +30,7 @@ class Game {
     if(this.board[row][col] == ""){
       this.board[row][col] = this.activePlayer.mark
       this.checkForWin()
+      this.checkForDraw()
       this.toggleActivePlayer()
     } else {
       alert('Invalid Move, Pick Again')
@@ -43,7 +45,19 @@ class Game {
     }
   }
 
-
+  checkForDraw(){
+    for (var i = 0; i < this.board.length; i++) {
+      for (var j = 0; j < this.board[i].length; j++) {
+        if(this.board[i][j] == ''){
+          return
+        }
+      }
+    }
+    if(this.checkForWin() == false){
+      this.isDraw = true
+      alert('This is a Cats Game!')
+    }
+  }
 
   checkForWin(){
     for (var i = 0; i < this.winningRows.length; i++) {
@@ -65,6 +79,7 @@ class Game {
         return true
         }
       }
+      return false
     }
 
 
