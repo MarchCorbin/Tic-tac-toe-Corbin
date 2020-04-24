@@ -47,7 +47,11 @@ function drawPlayerBoards(takeThem){
     }
       var playerWins = player.retrieveWins()
       var scoreNum = parseInt(scores.innerText)
-       scores.innerText = scoreNum + 1;
+      if(!scores.innerText){
+        scores.innerText = '0'
+      } else {
+        scores.innerText = scoreNum + 1;
+      }
     if(playerWins.length && toHere){
       var slotValue = playerWins[0];
       var playerBoards = `
