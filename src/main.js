@@ -7,11 +7,11 @@ var player2Board = document.querySelector('.player2-boards')
 var player1Score = document.querySelector('.player1-score')
 var player2Score = document.querySelector('.player2-score')
 var whoseTurn = document.querySelector('.whose-turn')
-gameBoard.addEventListener('click',function(){
+gameBoard.addEventListener('click',function() {
   getID()
   drawBoard()
 });
-window.onload = function(){
+window.onload = function() {
   startUp(player1)
   startUp(player2)
 }
@@ -29,11 +29,11 @@ function drawBoard(){
   }
 }
 
-function drawPlayerBoards(takeThem){
+function drawPlayerBoards(takeThem) {
   var toHere;
   var player;
   var scores
-    if(takeThem === 'player1'){
+    if (takeThem === 'player1'){
       toHere = player1Board
       player = player1
       scores = player1Score
@@ -44,12 +44,12 @@ function drawPlayerBoards(takeThem){
     }
       var playerWins = player.retrieveWins()
       var scoreNum = parseInt(scores.innerText)
-      if(!scores.innerText){
+      if (!scores.innerText){
         scores.innerText = '0'
       } else {
         scores.innerText = scoreNum + 1;
       }
-    if(playerWins.length && toHere){
+    if (playerWins.length && toHere){
       var slotValue = playerWins[0];
       var playerBoards = `
       <section class='small-tictac-board'>
@@ -77,7 +77,7 @@ function startUp(player){
   var boardGames;
   var toHere
   var scores;
-  if(player.name === 'player2'){
+  if (player.name === 'player2') {
     toHere = player2Board
     boardGames = player2.retrieveWins()
     scores = player2Score
@@ -111,15 +111,15 @@ function startUp(player){
   }
 }
 
-function checkWin(){
-  if(freshGame.winner !== null){
+function checkWin() {
+  if(freshGame.winner !== null) {
     var takeThem = freshGame.winner
     drawPlayerBoards(takeThem)
     freshGame.winner = null
   }
 }
 
-function getID(){
+function getID() {
    var slotId = event.target.id
    slotId = slotId.slice(1,4)
    var splitId = slotId.split('-')
