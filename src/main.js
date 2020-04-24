@@ -16,7 +16,6 @@ window.onload = function(){
   startUp(player2)
 }
 
-
 function drawBoard(){
   for (var i = 0; i < freshGame.board.length; i++) {
     for (var j = 0; j < freshGame.board[i].length; j++) {
@@ -28,9 +27,7 @@ function drawBoard(){
       }
     }
   }
-
 }
-
 
 function drawPlayerBoards(takeThem){
   var toHere;
