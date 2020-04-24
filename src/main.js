@@ -28,6 +28,7 @@ function drawBoard(){
       }
     }
   }
+
 }
 
 
@@ -122,6 +123,6 @@ function getID(){
    slotId = slotId.slice(1,4)
    var splitId = slotId.split('-')
    freshGame.takeTurn(splitId[0],splitId[1])
-   whoseTurn.innerText = freshGame.activePlayer.name
    checkWin()
+   whoseTurn.innerText = freshGame.activePlayer.name
 }

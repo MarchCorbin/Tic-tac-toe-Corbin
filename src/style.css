@@ -1,3 +1,4 @@
+/* Globals */
 * {
   box-sizing: border-box;
   font-family: 'Press Start 2P', cursive;
@@ -10,34 +11,52 @@ body {
   display: flex;
 }
 
-.player1-board {
-  height: 100%;
-  width: 33%;
-  border: 1px solid black;
+article {
+  display: inline-block;
+  height: 95px;
 }
-
-.game-board {
-  height: 100%;
-  width: 33%;
-  border: 1px solid red;
-}
-
-.player2-board {
-  height: 100%;
-  width: 33%;
-  border: 1px solid green;
-}
+/* Visual Indicators */
 .title-text {
   display: inline-block;
   height: 100px;
   text-align: center;
 }
 
+.player-text {
+  height: 50px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.player1-score, .player2-score {
+  height: 50px;
+  text-align: center;
+}
+
+.whose-turn {
+  position: absolute;
+  height: 33px;
+  width: 100px;
+  top: 60px;
+  left: 602px;
+}
+
+/* The Tic Tac Boards */
+.tictac-board {
+  margin-left: 85px;
+  margin-top: 60px;
+}
+
+.game-board {
+  height: 100%;
+  width: 33%;
+}
+
 .col:hover {
   background: lightgrey;
 }
-.col {
 
+.col {
   height: 100px;
   width: 100px;
   line-height: 100px;
@@ -53,13 +72,16 @@ body {
   text-align: center;
 }
 
-article {
-  display: inline-block;
-  height: 95px;
+.player1-board {
+  height: 100%;
+  width: 33%;
+  border-right: 1px solid black;
 }
 
-.tictac-board {
-  margin-left: 85px;
+.player2-board {
+  height: 100%;
+  width: 33%;
+  border-left: 1px solid black;
 }
 
 .small-tictac-board {
@@ -94,12 +116,6 @@ display: inline-block;
   border-right: 2px solid black;
 }
 
-.player-text {
-  height: 50px;
-  margin-top: 10px;
-  text-align: center;
-}
-
 .player1-boards {
    display: grid;
    grid-gap: 20px;
@@ -112,17 +128,4 @@ display: inline-block;
    grid-gap: 20px;
    grid-template-columns: repeat(3, 1fr);
    padding: 20px;
-}
-
-.player1-score, .player2-score {
-  height: 50px;
-  text-align: center;
-}
-
-.whose-turn {
-  position: absolute;
-  height: 33px;
-  width: 100px;
-  top: 60px;
-  left: 602px;
 }
