@@ -1,5 +1,5 @@
 class Game {
-  constructor(player1, player2){
+  constructor(player1, player2) {
     this.player1 = player1
     this.player2 = player2
     this.isActive = true
@@ -27,7 +27,7 @@ class Game {
 
 
   takeTurn(row, col) {
-    if(this.board[row][col] == ""){
+    if(this.board[row][col] == "") {
       this.board[row][col] = this.activePlayer.mark
       this.checkForWin()
       this.checkForDraw()
@@ -38,29 +38,29 @@ class Game {
   }
 
   toggleActivePlayer(){
-    if(this.activePlayer === this.player1){
+    if (this.activePlayer === this.player1){
       this.activePlayer = this.player2
-    } else if(this.activePlayer === this.player2){
+    } else if(this.activePlayer === this.player2) {
       this.activePlayer = this.player1
     }
   }
 
-  checkForDraw(){
+  checkForDraw() {
     for (var i = 0; i < this.board.length; i++) {
       for (var j = 0; j < this.board[i].length; j++) {
-        if(this.board[i][j] == ''){
+        if (this.board[i][j] == ''){
           return
         }
       }
     }
-    if(this.checkForWin() == false){
+    if (this.checkForWin() == false){
       this.isDraw = true
       alert('This is a Cats Game!')
       this.resetGame()
     }
   }
 
-  checkForWin(){
+  checkForWin() {
     for (var i = 0; i < this.winningRows.length; i++) {
       var currentWinningRow = this.winningRows[i]
       var firstMark = currentWinningRow[0]

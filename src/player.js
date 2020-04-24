@@ -5,7 +5,7 @@ class Player {
     this.name = name
   }
 
-  storeTheWins(){
+  storeTheWins() {
     if(this.wins.length) {
       var gameToStore = this.wins
       var stringifyGame = JSON.stringify(gameToStore)
@@ -13,14 +13,14 @@ class Player {
     }
   }
 
-  retrieveWins(){
+  retrieveWins() {
     var stringed = localStorage.getItem(`${this.name}`)
     var parsedGame = JSON.parse(stringed)
     return parsedGame
   }
 
-  assessTheWins(){
-    if(this.wins.length > 0){
+  assessTheWins() {
+    if(this.wins.length > 0) {
       this.storeTheWins()
     }
   }
