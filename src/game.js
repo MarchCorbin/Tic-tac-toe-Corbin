@@ -56,6 +56,7 @@ class Game {
     if(this.checkForWin() == false){
       this.isDraw = true
       alert('This is a Cats Game!')
+      this.resetGame()
     }
   }
 
